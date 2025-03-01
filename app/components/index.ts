@@ -4,7 +4,6 @@ import TextComponent from "./TextComponent";
 import ListComponent from "./ListComponent";
 import LineComponent from "./LineComponent";
 import TextAreaComponent from "./TextAreaComponent";
-import DateComponent from "./DateComponent";
 import ResumePreview from "./ResumePreview";
 import GlobalElementTracker from "./GlobalElementTracker";
 // templates
@@ -41,7 +40,6 @@ export {
   ListComponent,
   LineComponent,
   TextAreaComponent,
-  DateComponent,
   ResumePreview,
   GlobalElementTracker,
   ResumeNameEdit,

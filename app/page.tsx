@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { TemplateGenerator, TemplatesPreview } from "./components";
-import { Resume } from "./create/components";
 import { TEMPLATES } from "./db/allTemplates";
 import { sampleResume } from "./db/sampleResume";
 import { dummyTemplate } from "./db/sampleTemplate";
