@@ -6,9 +6,6 @@ import LineComponent from "./LineComponent";
 import TextAreaComponent from "./TextAreaComponent";
 import ResumePreview from "./ResumePreview";
 import GlobalElementTracker from "./GlobalElementTracker";
-// templates
-import TemplatesPreview from "./TemplatesPreview";
-import TemplateGenerator from "./TemplateGenerator";
 import MenuCreator from "./MenuCreator";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
@@ -33,6 +30,7 @@ import ResumeProjectsEdit from "./ResumeProjectsEdit";
 import ResumeHobbiesEdit from "./ResumeHobbiesEdit";
 import ResumeCertificatesEdit from "./ResumeCertificatesEdit";
 import ResumeExperienceEdit from "./ResumeExperienceEdit";
+import TemplatesPreview from "./TemplatesPreview";
 export {
   NavBar,
   Footer,
@@ -43,8 +41,6 @@ export {
   ResumePreview,
   GlobalElementTracker,
   ResumeNameEdit,
-  TemplatesPreview,
-  TemplateGenerator,
   MenuCreator,
   LeftMenu,
   RightMenu,
@@ -67,4 +63,5 @@ export {
   ResumeHobbiesEdit,
   ResumeCertificatesEdit,
   ResumeExperienceEdit,
+  TemplatesPreview,
 };

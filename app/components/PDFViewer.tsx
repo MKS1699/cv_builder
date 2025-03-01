@@ -4,15 +4,17 @@ import React, { useState, useEffect, useRef } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import "pdfjs-dist/web/pdf_viewer.css";
 import { motion } from "motion/react";
+import clsx from "clsx";
 
 // workerSrc path needs to be changed depending on where you save the file
 pdfjsLib.GlobalWorkerOptions.workerSrc = `/pdfjs/pdf.worker.mjs`; // CORRECT LOCAL PATH
 
 interface PDFViewerProps {
   pdfUrl: string; // ONLY A STRING (as expected)
+  className?: string;
 }
 
-const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
+const PDFViewer = ({ pdfUrl, className }: PDFViewerProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -84,7 +86,7 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
   };
 
   return (
-    <div className="w-a4 h-a4 flex flex-col">
+    <div className={clsx("w-a4 h-a4 flex flex-col", className)}>
       {/* page btns */}
       <div className="w-full h-fit flex flex-row gap-2 items-center justify-between">
         <button

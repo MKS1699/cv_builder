@@ -1,17 +1,15 @@
 "use client";
 
-import { ALL_TEMPLATES } from "@/app/db/allTemplates";
+import { ALL_TEMPLATES_LIST } from "@/app/db/allTemplates";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LeftMenu, PDFViewer, RightMenu } from "@/app/components";
 import { useAppDispatch, useAppSelector } from "@/app/hooks/storeHooks";
-import { ResumeSliceTypes } from "@/app/types/resumeSliceTypes";
 import { setResume } from "@/app/redux/slice/resumeSlice";
 import { sampleResume } from "@/app/db/sampleResume";
 import useCreatePDFBlob from "@/app/hooks/useCreatePDFBlob";
 import { setChosenTemplate } from "@/app/redux/slice/userDetailsSlice";
-import clsx from "clsx";
 
 const MainTemplate = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +22,7 @@ const MainTemplate = () => {
   // set the current template
   useEffect(() => {
     setCurrTemplate(
-      ALL_TEMPLATES.includes(path.split("/").at(-1) ?? "")
+      ALL_TEMPLATES_LIST.includes(path.split("/").at(-1) ?? "")
         ? path.split("/").at(-1) ?? ""
         : "none"
     );
