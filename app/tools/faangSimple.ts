@@ -1,4 +1,5 @@
 import { ResumeSliceTypes } from "../types/resumeSliceTypes";
+import { cleanURL } from "./helpers";
 
 export async function faangSimple(resume: ResumeSliceTypes, doc: any) {
   const {
@@ -42,8 +43,8 @@ export async function faangSimple(resume: ResumeSliceTypes, doc: any) {
 
   doc
     .fillColor("#1C4ED9")
-    .text(linkedIn, { link: linkedIn, align: "right" })
-    .text(github, { link: github, align: "right" });
+    .text(cleanURL(linkedIn), { link: linkedIn, align: "right" })
+    .text(cleanURL(github), { link: github, align: "right" });
 
   doc.moveDown(1.5);
   // objective component
