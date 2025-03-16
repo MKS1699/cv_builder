@@ -16,11 +16,11 @@ const getImageBuffer = async (imgPath: string) => {
 };
 
 // all image buffers
-const phoneImageBuffer = await getImageBuffer(phoneImagePath);
-const mailImageBuffer = await getImageBuffer(mailImagePath);
-const linkedInImageBuffer = await getImageBuffer(linkedInImagePath);
-const githubImageBuffer = await getImageBuffer(githubImagePath);
-const linkImageBuffer = await getImageBuffer(linkImagePath);
+const phoneImageBuffer = async () => await getImageBuffer(phoneImagePath);
+const mailImageBuffer = async () => await getImageBuffer(mailImagePath);
+const linkedInImageBuffer = async () => await getImageBuffer(linkedInImagePath);
+const githubImageBuffer = async () => await getImageBuffer(githubImagePath);
+const linkImageBuffer = async () => await getImageBuffer(linkImagePath);
 
 export {
   phoneImageBuffer,

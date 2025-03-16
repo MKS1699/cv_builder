@@ -32,6 +32,12 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
   const pageWidth = doc.page.width;
   const pageHeight = doc.page.height;
 
+  const linkedInImage = await linkedInImageBuffer();
+  const githubImage = await githubImageBuffer();
+  const mailImage = await mailImageBuffer();
+  const phoneImage = await phoneImageBuffer();
+  const linkImage = await linkImageBuffer();
+
   // name
   const names: string[] = name.split(" ");
   const nameWidth = doc.widthOfString(name);
@@ -124,7 +130,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
 
   // phone
   doc
-    .image(phoneImageBuffer, pageWidth / 2 - PELGWidthHalf - 15, doc.y - 5, {
+    .image(phoneImage, pageWidth / 2 - PELGWidthHalf - 15, doc.y - 5, {
       width: imageWidth,
       height: imageHeight,
     })
@@ -134,7 +140,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
     })
     .text(" ", { continued: true })
     .text(" ", { continued: true })
-    .image(mailImageBuffer, doc.x + phoneWidth + gapWidth * 2, doc.y - 3, {
+    .image(mailImage, doc.x + phoneWidth + gapWidth * 2, doc.y - 3, {
       width: imageWidth + 2,
       height: imageHeight + 2,
     })
@@ -154,7 +160,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
     .text(" ", { continued: true })
     .text(" ", { continued: true })
     .image(
-      linkedInImageBuffer,
+      linkedInImage,
       doc.x + phoneWidth + emailWidth + gapWidth * 4,
       doc.y - 3,
       {
@@ -178,7 +184,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
     .text(" ", { continued: true })
     .text(" ", { continued: true })
     .image(
-      githubImageBuffer,
+      githubImage,
       doc.x + phoneWidth + emailWidth + linkedInWidth + gapWidth * 6,
       doc.y - 3,
       {
@@ -343,7 +349,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
         doc.font("Helvetica");
         // demo / link / website
         doc
-          .image(linkImageBuffer, (pageWidth * 60) / 100, doc.y, {
+          .image(linkImage, (pageWidth * 60) / 100, doc.y, {
             width: imageWidth,
             height: imageHeight,
           })
@@ -362,7 +368,7 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
           );
         // github
         doc
-          .image(githubImageBuffer, (pageWidth * 80) / 100, doc.y - 3, {
+          .image(githubImage, (pageWidth * 80) / 100, doc.y - 3, {
             width: imageWidth,
             height: imageHeight,
           })
