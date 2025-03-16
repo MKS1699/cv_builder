@@ -19,24 +19,26 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
     email,
     experiences,
     github,
-    hobbies,
+    // hobbies,
     languages,
     linkedIn,
     name,
-    objective,
+    // objective,
     phone,
     projects,
     skills,
   } = resume;
 
   const pageWidth = doc.page.width;
-  const pageHeight = doc.page.height;
 
-  const linkedInImage = await linkedInImageBuffer();
-  const githubImage = await githubImageBuffer();
-  const mailImage = await mailImageBuffer();
-  const phoneImage = await phoneImageBuffer();
-  const linkImage = await linkImageBuffer();
+  const [linkedInImage, githubImage, mailImage, phoneImage, linkImage] =
+    await Promise.all([
+      linkedInImageBuffer(),
+      githubImageBuffer(),
+      mailImageBuffer(),
+      phoneImageBuffer(),
+      linkImageBuffer(),
+    ]);
 
   // name
   const names: string[] = name.split(" ");
@@ -107,8 +109,8 @@ export async function experienceIntensive(resume: ResumeSliceTypes, doc: any) {
 
   // phone , email, linkedIn, github
   doc.fontSize(12);
-  const maxphoneWidth = 90;
-  const maxELGWidth = 130;
+  // const maxphoneWidth = 90;
+  // const maxELGWidth = 130;
 
   const phoneWidth = doc.widthOfString(phone);
   const emailWidth = doc.widthOfString(email);

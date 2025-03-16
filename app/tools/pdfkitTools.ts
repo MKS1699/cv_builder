@@ -1,4 +1,3 @@
-import { margins } from "pdfkit/js/page";
 import { ResumeSliceTypes } from "../types/resumeSliceTypes";
 import { faangSimple } from "./faangSimple";
 import { experienceIntensive } from "./experienceIntensive";
@@ -10,8 +9,7 @@ export async function createPDF({
   resume: ResumeSliceTypes;
   chosenTemplate: string;
 }): Promise<Blob> {
-  return new Promise((resolve) => {
-    // console.log(resume, chosenTemplate);
+  return new Promise(async (resolve) => {
     const chunks: Uint8Array[] = [];
     const doc = new window.PDFDocument({
       size: "A4",
@@ -42,13 +40,13 @@ export async function createPDF({
 
     switch (chosenTemplate) {
       case "faamgSimple":
-        faangSimple(resume, doc);
+        await faangSimple(resume, doc); // Await the promise
         break;
       case "experienceIntensive":
-        experienceIntensive(resume, doc);
+        await experienceIntensive(resume, doc); // Await the promise
         break;
       default:
-        faangSimple(resume, doc);
+        await faangSimple(resume, doc); // Await the promise
         break;
     }
 
