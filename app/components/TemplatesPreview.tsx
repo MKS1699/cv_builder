@@ -38,6 +38,9 @@ const TemplatesPreview = () => {
       case "faangSimple":
         TITLE = "Faang Simple";
         break;
+      case "experienceIntensive":
+        TITLE = "Experience Intensive";
+        break;
       default:
         TITLE = title;
         break;
@@ -120,7 +123,7 @@ export const TemplatePreview = ({
           scale: isHover ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "linear" }}
-        className="absolute top-0 left-full min-h-96 w-[500px] bg-gray-800 text-white text-center p-2 rounded-md"
+        className="absolute top-0 left-full min-h-96 w-[500px] bg-gray-800 text-white text-center p-2 rounded-md z-10"
       >
         Points / Info on the {templateTitle} will be here
         {/* todo : this template info implementation */}

@@ -1,1 +1,4 @@
-export const ALL_TEMPLATES_LIST: string[] = ["faangSimple"];
+export const ALL_TEMPLATES_LIST: string[] = [
+  "faangSimple",
+  "experienceIntensive",
+];

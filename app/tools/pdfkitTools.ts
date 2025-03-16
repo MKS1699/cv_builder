@@ -1,6 +1,7 @@
 import { margins } from "pdfkit/js/page";
 import { ResumeSliceTypes } from "../types/resumeSliceTypes";
 import { faangSimple } from "./faangSimple";
+import { experienceIntensive } from "./experienceIntensive";
 
 export async function createPDF({
   resume,
@@ -39,8 +40,16 @@ export async function createPDF({
       ModDate: new Date(),
     };
 
-    if (chosenTemplate === "faangSimple") {
-      faangSimple(resume, doc);
+    switch (chosenTemplate) {
+      case "faamgSimple":
+        faangSimple(resume, doc);
+        break;
+      case "experienceIntensive":
+        experienceIntensive(resume, doc);
+        break;
+      default:
+        faangSimple(resume, doc);
+        break;
     }
 
     // End the document (triggers "end" event)
