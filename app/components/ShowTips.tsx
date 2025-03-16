@@ -219,7 +219,11 @@ const ShowTips = ({ requiredFields, activeField }: ShowTipsProps) => {
     requiredFields.map((field: string, fieldIndex: number) => {
       tips.push(
         <Tips
-          content={`${field[0].toUpperCase()}${field.slice(1)} is required.`}
+          content={`${field[0].toUpperCase()}${field.slice(1)} ${
+            field === "skills" || field === "languages" || field === "hobbies"
+              ? "are"
+              : "is"
+          } required.`}
           title={`${field[0].toUpperCase()}${field.slice(1)}`}
           key={`Tips-Required-Fields-${fieldIndex}`}
           type="alert"
