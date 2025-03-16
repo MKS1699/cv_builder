@@ -6,9 +6,10 @@ import { usePathname } from "next/navigation";
 export interface LeftMenuPros {
   // activeField : string;
   handleActiveField: (field: string) => void;
+  disabledFields: string[];
 }
 
-const LeftMenu = ({ handleActiveField }: LeftMenuPros) => {
+const LeftMenu = ({ handleActiveField, disabledFields }: LeftMenuPros) => {
   const path = usePathname();
   const chosenTemplate = path.split("/").at(-1);
   return (
@@ -19,6 +20,7 @@ const LeftMenu = ({ handleActiveField }: LeftMenuPros) => {
           chosenTemplate && chosenTemplate[0].toUpperCase()
         }${chosenTemplate?.slice(1)} Menu`}
         handleActiveField={handleActiveField}
+        disabledFields={disabledFields}
       />
     </div>
   );

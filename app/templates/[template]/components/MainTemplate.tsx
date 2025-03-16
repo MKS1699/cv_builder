@@ -18,6 +18,7 @@ const MainTemplate = () => {
   const [currTemplate, setCurrTemplate] = useState<string>("");
   const [showAlert, setShowAlert] = useState<boolean>(false);
   const [activeField, setActiveField] = useState<string>("");
+  const [disabledFields, setDisabledFields] = useState<string[]>([]);
 
   // set the current template
   useEffect(() => {
@@ -27,6 +28,19 @@ const MainTemplate = () => {
         : "none"
     );
   }, [path]);
+
+  function createDisabledFields(currTemplate: string): string[] {
+    let disabledFields: string[] = [];
+    switch (currTemplate) {
+      case "experienceIntensive":
+        disabledFields = ["objective", "hobbies"];
+        break;
+      default:
+        disabledFields = [];
+        break;
+    }
+    return disabledFields;
+  }
 
   // setting chosen template and also redirecting to templates page if chosen template does not exists
   useEffect(() => {
@@ -38,6 +52,8 @@ const MainTemplate = () => {
       return () => window.clearTimeout(replaceRoute);
     } else {
       dispatch(setChosenTemplate(currTemplate));
+      // disabled fields for templates if any
+      setDisabledFields(createDisabledFields(currTemplate));
     }
   }, [currTemplate]);
 
@@ -54,7 +70,10 @@ const MainTemplate = () => {
       {showAlert && <AlertMessage path={path} />}
       <div className="w-full h-full flex flex-row gap-2 p-2 justify-between">
         {/* left menu */}
-        <LeftMenu handleActiveField={setActiveField} />
+        <LeftMenu
+          handleActiveField={setActiveField}
+          disabledFields={disabledFields}
+        />
         {/* pdf viewer */}
         {pdfURL && <PDFViewer pdfUrl={pdfURL} />}
         {/* right menu */}
