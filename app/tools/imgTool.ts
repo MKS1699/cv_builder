@@ -3,7 +3,7 @@
 // image paths
 const phoneImagePath = "/img/phone.png";
 const mailImagePath = "/img/mail.png";
-const linkedInImagePath = "/img/linkedin.png";
+const linkedInImagePath = "/img/linkedIn.png";
 const githubImagePath = "/img/github.png";
 const linkImagePath = "/img/link.png";
 
